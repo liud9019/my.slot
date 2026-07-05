@@ -1,0 +1,2 @@
+# my.slot
+slot demo
