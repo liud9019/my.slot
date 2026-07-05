@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color-scheme: light;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #EFEBF5;
+  color: #1F1A2E;
+}
+
+/* 数字与时间用等宽特性 */
+.font-mono, .tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* 滚动条隐藏（移动端感觉） */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* 安全区域适配 */
+.safe-top { padding-top: env(safe-area-inset-top); }
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+
+/* 选中态涟漪 */
+@keyframes ripple {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+/* 通用过渡 */
+button, a, [role="button"] {
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 按压反馈 */
+.press-shrink:active { transform: scale(0.96); }
+
+/* 文字渐变 */
+.text-gradient-brand {
+  background: linear-gradient(135deg, #6B4FBB 0%, #3E2C6E 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 背景装饰渐变 */
+.bg-aurora {
+  background:
+    radial-gradient(at 0% 0%, rgba(107,79,187,0.18) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(201,169,97,0.12) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(62,44,110,0.10) 0px, transparent 50%),
+    #FAF8F5;
+}
+
+/* 移动端外壳（桌面预览） */
+.mobile-shell {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  background: #FAF8F5;
+  min-height: 100vh;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  body {
+    background: linear-gradient(135deg, #2A1D4A 0%, #3E2C6E 50%, #1B1133 100%);
+  }
+  .mobile-shell {
+    min-height: calc(100vh - 40px);
+    margin: 20px auto;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4), 0 0 0 8px #1B1133, 0 0 0 9px #3E2C6E;
+  }
+}
+
+/* 输入框聚焦 */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+}
+
+/* placeholder 颜色 */
+input::placeholder, textarea::placeholder {
+  color: #8B82A3;
+}
